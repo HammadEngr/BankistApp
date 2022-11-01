@@ -1,0 +1,492 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@900&display=swap");
+@mixin display-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+$colors: (
+  "back-ground": #f3f3f3,
+  "sec-background": #ffffff,
+  "primary-Font": rgba(0, 0, 0, 0.687),
+  "secondary-Font": white,
+  "tertiary-Font": rgba(0, 0, 0, 0.603),
+  "primary-green": #66bc66,
+  "light-green": #89b789,
+  "primary-yellow": #dfcf20,
+  "light-yellow": #e0d55a,
+  "primary-purple": #bc46e4,
+  "light-purple": #c771e3,
+);
+@keyframes pop {
+  0% {
+    transform: translateY(0);
+  }
+  33% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  margin: 0;
+  background-color: map-get($colors, back-ground);
+  font-family: "Poppins";
+}
+.main__header {
+  padding: 0rem 4rem 8rem;
+}
+.nav {
+  @include display-flex();
+  align-items: center;
+  justify-content: space-between;
+  height: 6rem;
+  padding: 0 1rem;
+}
+.nav__logo--container {
+  width: 9rem;
+}
+.nav__logo--image {
+  width: 100%;
+}
+.nav__list {
+  @include display-flex();
+  list-style: none;
+}
+.nav__list--item {
+  padding: 0 1rem;
+}
+.nav__list--link {
+  text-decoration: none;
+  color: map-get($colors, primary-Font);
+}
+#openAccount {
+  padding: 0.8rem 2.4rem;
+  background-color: map-get($colors, light-green);
+  border-radius: 40px;
+  &:hover {
+    background-color: map-get($colors, primary-green);
+  }
+}
+.main__heading {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto auto;
+  h1 {
+    grid-row: 1;
+    font-size: 3.5rem;
+    margin-top: 2rem;
+    color: map-get($colors, primary-Font);
+  }
+  h4 {
+    grid-row: 2;
+    font-size: 1.5rem;
+    color: map-get($colors, primary-Font);
+  }
+  button {
+    grid-row: 3;
+    background: none;
+    border: none;
+    border-bottom: 1px solid map-get($colors, primary-green);
+    padding: 0;
+    font: inherit;
+    font-size: 1.3rem;
+    color: map-get($colors, primary-green);
+    width: fit-content;
+    height: fit-content;
+  }
+  img {
+    grid-row: 1/-1;
+    width: 30rem;
+  }
+}
+.section {
+  padding: 4rem 10rem 10rem;
+  border-top: 1px solid rgba(174, 174, 174, 0.377);
+}
+.section--title {
+  width: fit-content;
+  padding: 4rem;
+  h4 {
+    font-family: inherit;
+    color: map-get($colors, primary-green);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: large;
+  }
+  h1 {
+    font-family: inherit;
+    font-size: 2.5rem;
+    color: map-get($colors, primary-Font);
+  }
+}
+.section__features {
+  display: grid;
+  height: 900px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 4rem;
+  grid-template-areas:
+    "one two"
+    "three four"
+    "five six";
+  img {
+    width: 100%;
+  }
+}
+.section__feature--digiatlBank {
+  grid-area: two;
+}
+.section__feature--watchMoney {
+  text-align: right;
+  grid-area: three;
+}
+.section__feature--debitCard {
+  grid-area: six;
+}
+.section__feature--heading {
+  font-size: 1.3rem;
+}
+.section__feature {
+  padding: 2rem;
+  transition: 1s;
+  p {
+    line-height: 2rem;
+    color: map-get($colors, tertiary-Font);
+  }
+  svg {
+    width: 4rem;
+    height: 3rem;
+    background-color: map-get($colors, light-green);
+    border: {
+      radius: 10%;
+      style: none;
+      color: none;
+    }
+  }
+  &:hover {
+    animation: pop 1s ease-in forwards;
+  }
+}
+.section__feature--digitalBank--img {
+  grid-area: one;
+  transition: 1s;
+  &:hover {
+    transform: scale(103%);
+  }
+}
+.section__feature--watchMoney--img {
+  grid-area: four;
+  transition: 1s;
+  &:hover {
+    transform: scale(103%);
+  }
+}
+.section__feature--creditCard--img {
+  grid-area: five;
+  transition: 1s;
+  &:hover {
+    transform: scale(103%);
+  }
+}
+.operation {
+  display: grid;
+  grid-template-columns: 0.5fr 4fr;
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  background-color: map-get($colors, sec-background);
+  height: auto;
+  padding: 6rem 3rem;
+  h5 {
+    grid-column: 2;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  p {
+    line-height: 2rem;
+    grid-row: 2;
+    grid-column: 2;
+    color: map-get($colors, tertiary-Font);
+  }
+  .operations__icon--1,
+  .operations__icon--2,
+  .operations__icon--3 {
+    grid-column: 1;
+    grid-row: 1/-1;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    border-radius: 10%;
+  }
+  &:hover {
+    box-shadow: 1px 1px 20px 1px rgba(177, 177, 177, 0.7);
+    .operation__icon {
+      transition: 1s ease-in-out;
+      transform: rotateY(180deg);
+    }
+  }
+}
+.operation__icon {
+  svg {
+    width: 6rem;
+    height: 6rem;
+    padding: 2px;
+  }
+}
+.operations__icon--1 {
+  background-color: map-get($colors, light-yellow);
+}
+.operations__icon--2 {
+  background-color: map-get($colors, light-green);
+}
+.operations__icon--3 {
+  background-color: map-get($colors, light-purple);
+}
+.operation__btns {
+  @include display-flex();
+  justify-content: center;
+}
+.operation__btn {
+  padding: 1rem;
+  border-radius: 50px;
+  width: 10rem;
+  align-items: center;
+  font-weight: bold;
+  border: none;
+  margin-right: 1rem;
+  transform: translateY(25px);
+}
+.operation__btn--1 {
+  background-color: map-get($colors, light-yellow);
+  &:hover {
+    background-color: map-get($colors, primary-yellow);
+    cursor: pointer;
+  }
+}
+.operation__btn--2 {
+  background-color: map-get($colors, light-green);
+  &:hover {
+    background-color: map-get($colors, primary-green);
+    cursor: pointer;
+  }
+}
+.operation__btn--3 {
+  background-color: map-get($colors, light-purple);
+  &:hover {
+    background-color: map-get($colors, primary-purple);
+    cursor: pointer;
+  }
+}
+.hidden {
+  display: none;
+}
+.slider {
+  position: relative;
+
+  overflow: hidden;
+  max-width: 100rem;
+  height: 30rem;
+  margin: 0 auto;
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  height: fit-content;
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  padding: 0 8rem;
+  gap: 2rem;
+  h5 {
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: map-get($colors, primary-Font);
+  }
+  address {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    column-gap: 2rem;
+    padding: 0 3rem;
+    img {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      width: 5rem;
+      border-radius: 50%;
+    }
+    h6 {
+      grid-column: 2;
+      grid-row: 1;
+      font-size: 1.5rem;
+      align-self: flex-end;
+      margin: 0;
+      font-style: normal;
+      color: map-get($colors, primary-Font);
+    }
+    p {
+      grid-column: 2;
+      font-style: normal;
+      color: map-get($colors, tertiary-Font);
+    }
+  }
+  blockquote {
+    line-height: 2rem;
+    color: map-get($colors, tertiary-Font);
+    text-align: justify;
+  }
+}
+
+.testimonial::before {
+  content: "\201C";
+  position: absolute;
+  top: 1rem;
+  left: 4rem;
+  line-height: 1;
+  font-size: 10rem;
+  font-family: inherit;
+  color: map-get($colors, primary-green);
+  z-index: -1;
+}
+.slider__btn {
+  position: absolute;
+  top: 40%;
+  background-color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(177, 177, 177, 0.7);
+  }
+}
+.slider__btn--left {
+  left: 2%;
+}
+.slider__btn--right {
+  right: 2%;
+}
+.section--sign-up {
+  text-align: center;
+  background-color: hsl(202, 10%, 21%);
+  h1 {
+    color: map-get($colors, back-ground);
+  }
+}
+.btn--show-modal {
+  width: fit-content;
+  padding: 1.5rem 5rem;
+  border-radius: 10rem;
+  font-family: inherit;
+  border-style: none;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: map-get($colors, light-green);
+  &:hover {
+    cursor: pointer;
+    background-color: map-get($colors, primary-green);
+  }
+}
+
+.footer {
+  display: grid;
+  padding: 10rem 0 10rem;
+  gap: 3rem;
+  justify-content: center;
+  background-color: hsl(202, 10%, 21%);
+  border-top: 1px solid rgb(74, 74, 74);
+}
+.footer__links {
+  justify-self: center;
+}
+.footer__items {
+  @include display-flex();
+  list-style: none;
+}
+.footer__link {
+  text-decoration: none;
+  padding: 0 2rem;
+  color: map-get($colors, back-ground);
+}
+.footer__logo {
+  width: 4rem;
+  justify-self: center;
+}
+.footer__copyright {
+  justify-self: center;
+  color: rgb(131, 130, 128);
+  a {
+    color: rgb(192, 192, 192);
+  }
+}
+.modal {
+  background-color: map-get($colors, back-ground);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal__header {
+  font-size: 2rem;
+  margin: 2rem;
+  line-height: 1.5;
+}
+.modal__form {
+  margin: 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 2rem;
+}
+.modal__form label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.modal__form input {
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+}
+
+.modal__form button {
+  grid-column: 1 / span 2;
+  justify-self: center;
+  margin: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  border-style: none;
+  background-color: map-get($colors, light-green);
+}
+
+.btn--close-modal {
+  font-family: inherit;
+  color: map-get($colors, primary-green);
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}
